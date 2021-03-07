@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+    <title>Aero Platzi</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <h1>Total Flights: <span id="numberFlights"></span></h1> 
+
+            <form>
+                <div class="mb-3">
+                    <label for="ddlFlight" class="form-label">Flight:</label>
+                    <select class="form-select" id="ddlFlight" onchange="flightChange()">
+                        <option value="0">Choose a Flight</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="ddlRoute" class="form-label">Route:</label>
+                    <select class="form-select" id="ddlRoute">
+                        <option value="1">Colombia - Argentina</option>
+                        <option value="2">Colombia - México</option>
+                        <option value="3">México - Colombia</option>
+                        <option value="4">Singapur - Mèxico</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="txtStatus" class="form-label">Status:</label>
+                    <input type="text" class="form-control" id="txtStatus" >
+                </div>
+
+                <div class="mb-3">
+                    <label for="txtArrival" class="form-label">Arrival:</label>
+                    <input type="date" class="form-control" id="txtArrival" >
+                </div>
+                <div class="mb-3">
+                    <label for="txtExit" class="form-label">Exit:</label>
+                    <input type="date" class="form-control" id="txtExit">
+                </div>
+                <div class="mb-3">
+                    <label for="txtTime" class="form-label">Time:</label>
+                    <input type="time" class="form-control" id="txtTime">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="insertFlight()">Generate Flight</button>
+                <button type="button" class="btn btn-warning" onclick="updateFlight()" id="btnUpdate">Update Flight</button>
+                <button type="button" class="btn btn-danger" onclick="updateFlight()" id="btnDelete">Delete Flight</button>
+              </form>
+        </div>
+      </div>
+        
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+    <script src="./js/index.js"></script>
+
+
+
+  </body>
+</html>
