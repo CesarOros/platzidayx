@@ -1,5 +1,5 @@
-const url = "https://aeroplatziteam8.vercel.app/";
-
+//const url = "https://aeroplatziteam8.vercel.app/";
+const url = "http://35.226.180.202:3000/"
 function init(){
     getFlights();
     document.getElementById("btnUpdate").disabled = true;
@@ -23,27 +23,30 @@ function getFlights(){
             select.appendChild(opt);
         }
     })
-    .catch(error => alert("Ocurriò un error al obtener los datos."));
+    .catch(error => alert("An error occurred while getting the data."));
 }
 
 
 function insertFlight(){
     var event = data();
-    console.log(event);
 
     fetch(url + "flight", 
     {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
         body: JSON.stringify(event) // body data type must match "Content-Type" header
     })
     .then(res => res.json())
     .catch(error => {
         console.error('Error:', error)
-        console.log("Ocurrió un error al insertar el registro")
+        console.log("an error occurred while inserting the register")
     })
     .then(response => {
         console.log('Success:', response)
-        alert("Insertado Correctamente")
+        alert("Inserted Correctly")
     });;
 }
 
@@ -53,16 +56,20 @@ function updateFlight(){
     fetch(url + "flight/" +event.flightid, 
     {
         method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(event) // body data type must match "Content-Type" header
     })
     .then(res => res.json())
     .catch(error => {
         console.error('Error:', error)
-        console.log("Ocurrió un error al actualizar el registro")
+        console.log("An error occurred while updating the register.")
     })
     .then(response => {
         console.log('Success:', response)
-        alert("Actualizado Correctamente")
+        alert("Updated Correctly.")
     });;
 }
 
@@ -73,16 +80,20 @@ function deleteFlight(){
     fetch(url + "flight/" +event.flightid, 
     {
         method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(event) // body data type must match "Content-Type" header
     })
     .then(res => res.json())
     .catch(error => {
         console.error('Error:', error)
-        console.log("Ocurrió un error al eliminar el registro")
+        console.log("An error occurred while deleting the register.")
     })
     .then(response => {
         console.log('Success:', response)
-        alert("Elminado Correctamente")
+        alert("Deleted Correctly")
     });;
 }
 
